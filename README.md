@@ -1,0 +1,1 @@
+# gitleak_secret_scanner
