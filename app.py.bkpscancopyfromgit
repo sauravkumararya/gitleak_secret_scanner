@@ -1,0 +1,105 @@
+from flask import Flask, request, jsonify
+import subprocess
+import os
+import uuid
+import shutil
+
+# Constants for directories
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+REPO_DIR = os.path.join(BASE_DIR, "repos")
+REPORT_DIR = os.path.join(BASE_DIR, "reports")
+
+# Ensure directories exist
+os.makedirs(REPO_DIR, exist_ok=True)
+os.makedirs(REPORT_DIR, exist_ok=True)
+
+app = Flask(__name__)
+
+@app.route('/api/clone-and-scan', methods=['POST'])
+def clone_and_scan():
+    data = request.get_json()
+    repo_url = data.get('repo_url')
+    token = data.get('access_token')
+    config_path = data.get('config_path')  # Optional custom config
+
+    if not repo_url or not token:
+        return jsonify({"error": "Missing repository URL or access token"}), 400
+
+    # Prepare the repository URL with the access token
+    repo_with_token = repo_url.replace("https://", f"https://{token}@")
+    repo_name = f"repo-{uuid.uuid4()}"
+    clone_path = os.path.join(REPO_DIR, repo_name)
+
+    try:
+        # Clone the repository
+        clone_command = ["git", "clone", repo_with_token, clone_path]
+        clone_result = subprocess.run(clone_command, capture_output=True, text=True)
+
+        if clone_result.returncode != 0:
+            return jsonify({
+                "status": "error",
+                "message": f"Failed to clone repository: {clone_result.stderr.strip()}"
+            }), 500
+
+        # Set up report path
+        report_filename = f"gitleaks-report-{uuid.uuid4()}.json"
+        report_path = os.path.join(REPORT_DIR, report_filename)
+
+        # Prepare Gitleaks scan command
+        scan_command = [
+            "gitleaks",
+            "detect",
+            "--source", clone_path,
+            "--no-git",
+            "--report-format", "json",
+            "--report-path", report_path
+        ]
+
+        if config_path and os.path.isfile(config_path):
+            scan_command.extend(["--config-path", config_path])
+
+        # Run Gitleaks scan
+        scan_result = subprocess.run(scan_command, capture_output=True, text=True)
+
+        if scan_result.returncode == 0:
+            # No leaks found
+            return jsonify({
+                "status": "success",
+                "message": "No secrets were found in the repository.",
+                "report_path": report_path
+            }), 200
+        elif scan_result.returncode == 1:
+            # Leaks were found
+            with open(report_path, 'r') as report_file:
+                report_data = report_file.read()
+            return jsonify({
+                "status": "success_with_findings",
+                "message": "Secrets were found in the repository.",
+                "report_path": report_path,
+                "findings": report_data
+            }), 200
+        else:
+            # Unexpected error
+            return jsonify({
+                "status": "error",
+                "message": "An error occurred during the scan.",
+                "details": scan_result.stderr.strip()
+            }), 500
+
+    except subprocess.CalledProcessError as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Error processing repository: {e.stderr.strip()}"
+        }), 500
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Unexpected error: {str(e)}"
+        }), 500
+    finally:
+        # Cleanup cloned repository
+        if os.path.exists(clone_path):
+            shutil.rmtree(clone_path)
+
+if __name__ == "__main__":
+    app.run(debug=True)
