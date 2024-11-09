@@ -1,0 +1,42 @@
+[
+ {
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 1,
+  "EndLine": 1,
+  "StartColumn": 1,
+  "EndColumn": 31,
+  "Match": "API_KEY=12345-ABCDE-67890-FGHIJ",
+  "Secret": "12345-ABCDE-67890-FGHIJ",
+  "File": "/home/saurav_kumar/gitleaks_scanner/repos/repo-2cb082ce-07cd-44f8-a113-53acce731160/dm.js",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 4.316828,
+  "Author": "",
+  "Email": "",
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "/home/saurav_kumar/gitleaks_scanner/repos/repo-2cb082ce-07cd-44f8-a113-53acce731160/dm.js:generic-api-key:1"
+ },
+ {
+  "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+  "StartLine": 4,
+  "EndLine": 4,
+  "StartColumn": 2,
+  "EndColumn": 47,
+  "Match": "ACCESS_TOKEN=ghp_abcdefghijklmnopqrst123456789",
+  "Secret": "ghp_abcdefghijklmnopqrst123456789",
+  "File": "/home/saurav_kumar/gitleaks_scanner/repos/repo-2cb082ce-07cd-44f8-a113-53acce731160/dm.js",
+  "SymlinkFile": "",
+  "Commit": "",
+  "Entropy": 4.862576,
+  "Author": "",
+  "Email": "",
+  "Date": "",
+  "Message": "",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "/home/saurav_kumar/gitleaks_scanner/repos/repo-2cb082ce-07cd-44f8-a113-53acce731160/dm.js:generic-api-key:4"
+ }
+]
