@@ -7,7 +7,7 @@
   "EndColumn": 32,
   "Match": "API_KEY=12345-ABCDE-67890-FGHIJe",
   "Secret": "12345-ABCDE-67890-FGHIJe",
-  "File": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/login.js",
+  "File": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/login.js",
   "SymlinkFile": "",
   "Commit": "",
   "Entropy": 4.3868423,
@@ -17,7 +17,7 @@
   "Message": "",
   "Tags": [],
   "RuleID": "generic-api-key",
-  "Fingerprint": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/login.js:generic-api-key:1"
+  "Fingerprint": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/login.js:generic-api-key:1"
  },
  {
   "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
@@ -27,7 +27,7 @@
   "EndColumn": 48,
   "Match": "ACCESS_TOKEN=ghp_abcdefghijklmnopqrst123456789e",
   "Secret": "ghp_abcdefghijklmnopqrst123456789e",
-  "File": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/login.js",
+  "File": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/login.js",
   "SymlinkFile": "",
   "Commit": "",
   "Entropy": 4.8521686,
@@ -37,7 +37,7 @@
   "Message": "",
   "Tags": [],
   "RuleID": "generic-api-key",
-  "Fingerprint": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/login.js:generic-api-key:4"
+  "Fingerprint": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/login.js:generic-api-key:4"
  },
  {
   "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
@@ -47,7 +47,7 @@
   "EndColumn": 31,
   "Match": "API_KEY=12345-ABCDE-67890-FGHIJ",
   "Secret": "12345-ABCDE-67890-FGHIJ",
-  "File": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/public/img/dconf.js",
+  "File": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/public/img/dconf.js",
   "SymlinkFile": "",
   "Commit": "",
   "Entropy": 4.316828,
@@ -57,7 +57,7 @@
   "Message": "",
   "Tags": [],
   "RuleID": "generic-api-key",
-  "Fingerprint": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/public/img/dconf.js:generic-api-key:1"
+  "Fingerprint": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/public/img/dconf.js:generic-api-key:1"
  },
  {
   "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
@@ -67,7 +67,7 @@
   "EndColumn": 47,
   "Match": "ACCESS_TOKEN=ghp_abcdefghijklmnopqrst123456789",
   "Secret": "ghp_abcdefghijklmnopqrst123456789",
-  "File": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/public/img/dconf.js",
+  "File": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/public/img/dconf.js",
   "SymlinkFile": "",
   "Commit": "",
   "Entropy": 4.862576,
@@ -77,6 +77,6 @@
   "Message": "",
   "Tags": [],
   "RuleID": "generic-api-key",
-  "Fingerprint": "/home/saurav_kumar/gitleaks_scanner/repos/repo-672fbc0a-4c80-4561-9d62-388cc55b46f1/public/img/dconf.js:generic-api-key:4"
+  "Fingerprint": "/home/saurav_kumar/gitleak/gitleak_secret_scanner/repos/repo-7fe255c7-d8c6-43b0-a72f-5b73793f2bac/public/img/dconf.js:generic-api-key:4"
  }
 ]
