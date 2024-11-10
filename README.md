@@ -55,6 +55,8 @@
 ---
 
 <h2>📚 Getting Started</h2>
+
+<h3>🔹 Option 1: Run with Docker</h3>
 <ol>
   <li>Pull the Docker image:
     <pre><code>docker pull sauravkumararya/gitleaks-scanner-ui-based:latest</code></pre>
@@ -64,6 +66,34 @@
   </li>
   <li>Open the app in your browser and start scanning!</li>
 </ol>
+
+<h3>🔹 Option 2: Run Natively</h3>
+<ol>
+  <li><strong>Clone the Repository:</strong>
+    <pre><code>git clone https://github.com/sauravkumararya/gitleak_secret_scanner.git</code></pre>
+  </li>
+  <li><strong>Navigate to the Project Directory:</strong>
+    <pre><code>cd gitleak_secret_scanner</code></pre>
+  </li>
+  <li><strong>Set Up a Python Virtual Environment:</strong>
+    <pre><code>python3 -m venv env</code>
+    <code>source env/bin/activate  # Linux/Mac</code>
+    <code>env\Scripts\activate  # Windows</code></pre>
+  </li>
+  <li><strong>Install Requirements:</strong>
+    <pre><code>pip install -r requirements.txt</code></pre>
+  </li>
+  <li><strong>Run the Flask Application:</strong>
+    <pre><code>flask run</code></pre>
+    By default, the app will run on <code>http://127.0.0.1:5000</code>.
+  </li>
+</ol>
+
+<h4>⚠️ Note:</h4>
+<ul>
+  <li>Ensure the <strong>gitleaks</strong> binary is installed and accessible in your system's PATH.</li>
+  <li>If you don't have gitleaks, <a href="https://github.com/zricethezav/gitleaks/releases">download it here</a> and add it to your PATH.</li>
+</ul>
 
 ---
 
