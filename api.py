@@ -36,6 +36,7 @@ def scan_repo():
             GITLEAKS_PATH,
             'detect',
             '--source', temp_dir,
+           '--no-git',
             '-r', report_path,  # Use -r for report path
             '-f', 'json'  # Use -f for report format
         ]
